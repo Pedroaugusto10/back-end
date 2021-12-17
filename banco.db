@@ -1,0 +1,30 @@
+const sqllite3 = require('sqlite3').  verboso();
+
+const db = novo sqllite3. Banco de dados('./banco.db'( erro) => {
+ se (erro) {
+ console. log('Erro ao criar o banco de dados', erro);
+    } mais {
+ console. log('Banco criado com sucesso....');
+    }
+});
+
+const createTable = = = > {
+ console. log("Criando tabela estacionamento");
+ db. executado("Criar tabela se não existir estacionamento (id INTEGER PRIMARY KEY AUTOINCREMENT, placa_do_carro INTEGER, VALOR_PAGO NUMBER, hora_de_entrada TEXT, hora_de_saida TEXT)", (err)=>{ 
+ se(err){ 
+ console. log("Erro ao criar tabela",err);
+        }mais{
+ console. log("Tabela criada com sucesso". ),;
+        }
+    });
+}
+
+const close = (= > {
+ db. fechar();
+}
+
+módulo. exportações = {
+    DB: db,
+ createTable,
+ fechar
+} 
